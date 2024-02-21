@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="google.css">
+    <title>Google</title>
+</head>
+<body>
+    <div class="container">
+        <img src="google.jpg" alt="google">
+        <form action="https://www.google.com/search" method="GET" target="_blank">
+            <input type="text" name="q" id="search"> 
+            <div class="secondform1">
+                <button type="submit" id="searchbutton" style="background-color: #f2f2f2;border:1px solid #f2f2f2; border-radius: 4px;color: #202124;cursor: pointer; padding: 8px 16px; margin: 8px;">Google search</button>
+            </div>
+        </form>
+        <div class="secondform2">
+            <button type="button" onclick="feelingLucky()" style="background-color:#f2f2f2;border:1px solid #f2f2f2;border-radius:4px;color:#202124;cursor:pointer;padding:8px 16px;">Kendimi Şanslı Hissediyorum</button>
+        </div>
+    </div>
+
+    <script>
+        function feelingLucky() {
+            var query = document.getElementById('search').value;
+            if (query) {
+                var form = document.createElement('form');
+                form.setAttribute('method', 'GET');
+                form.setAttribute('action', 'https://www.google.com/search');
+                form.setAttribute('target', '_blank');
+                
+                var hiddenField = document.createElement('input');
+                hiddenField.setAttribute('type', 'hidden');
+                hiddenField.setAttribute('name', 'q');
+                hiddenField.setAttribute('value', query);
+                
+                var btnIField = document.createElement('input');
+                btnIField.setAttribute('type', 'hidden');
+                btnIField.setAttribute('name', 'btnI');
+                
+                form.appendChild(hiddenField);
+                form.appendChild(btnIField);
+                
+                document.body.appendChild(form);
+                form.submit();
+            }
+        }
+    </script>
+</body>
+</html>
